@@ -1,0 +1,11 @@
+*.pyc
+HMM/data/*.tsv
+HMM/data/*.txt
+Neural Translation/data/*.tsv
+Neural Translation/data/*.txt
+Neural Translation/log/
+_*
+*~
+*.odp
+
+
