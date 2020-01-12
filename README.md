@@ -16,5 +16,5 @@ Results on testset can be found in
 
 `Pinyin-to-Character/Neural Translation/data/model_epoch_30_gs_192180_qwerty.csv` for Seq2Seq model, and `Pinyin-to-Character/HMM/data/viterbi.csv` for Viterbi Algorithm. 
 
-For more information, you can have a look at my [report](https://github.com/SunflowerAries/Pinyin-to-Character/blob/master/report.pdf)
+For more information, you can have a look at my [report](https://github.com/SunflowerAries/Pinyin-to-Character/blob/master/Report.pdf)
 
