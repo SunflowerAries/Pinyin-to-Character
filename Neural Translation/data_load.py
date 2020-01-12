@@ -13,7 +13,7 @@ from __future__ import print_function
 from hyperparams import Hyperparams as hp
 import codecs
 import numpy as np
-import re
+import re, regex
 
 def load_vocab():
     import pickle
@@ -56,7 +56,7 @@ def load_train_data():
 def load_test_data():
     '''Embeds and vectorize words in input corpus'''
     try:
-        lines = [line for line in codecs.open('data/valid.tsv', 'r', 'utf-8').read().splitlines()[1:]]
+        lines = [line for line in codecs.open('data/valid.tsv', 'r', 'utf-8').read().splitlines()]
     except IOError:
         raise IOError("Write the sentences you want to test line by line in `data/input.csv` file.")
 
@@ -67,10 +67,16 @@ def load_test_data():
     for line in lines:
         i, pnyn_sent, hanzi_sent = line.strip().split("\t")
         assert len(pnyn_sent) == len(hanzi_sent)
-        x = [pnyn2idx.get(pnyn, 1) for pnyn in pnyn_sent]  # 1: OOV
-        if len(x) > hp.maxlen:
+        hanzi_sent = regex.sub(u"[_《》〡““”]", r"", hanzi_sent)
+        pnyn_sent = regex.sub(u"[_《》〡““”]", r"", pnyn_sent)
+        if hanzi_sent[-1] in ['，', '：', '？', '！', '。']:
+            hanzi_sent = hanzi_sent[:-1]
+        if pnyn_sent[-1] in ['，', '：', '？', '！', '。']:
+            pnyn_sent = pnyn_sent[:-1]
+        if len(pnyn_sent) > hp.maxlen:
             print(i)
             break
+        x = [pnyn2idx.get(pnyn, 1) for pnyn in pnyn_sent]  # 1: OOV
         x += [0] * (hp.maxlen - len(x))
         xs.append(x)
         ys.append(hanzi_sent)
