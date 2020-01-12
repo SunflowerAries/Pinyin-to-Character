@@ -4,11 +4,11 @@ This repo offers two ways to deal with Chinese Input Method, Viterbi Algorithm a
 
 ## Hint
 
-I have to mention that I just combine What [Tiantian Le](https://github.com/letiantian/Pinyin2Hanzi) (for Viterbi Algorithm) and [Qiu Hu](https://github.com/whatbeg/GodTian_Pinyin) (for pinyin segment using maximum matching) do and make some alternations to codea in `HMM/`.
+I have to mention that I just combine What [Tiantian Le](https://github.com/letiantian/Pinyin2Hanzi) (for Viterbi Algorithm) and [Qiu Hu](https://github.com/whatbeg/GodTian_Pinyin) (for pinyin segment using maximum matching) do and make some alternations to codes in `HMM/`.
 
 Then for codes in `Neural Translation/`, most comes from [Kyubyong's work](https://github.com/Kyubyong/neural_chinese_transliterator), and I just make some small changes, including dataset.
 
-The dataset comes from [skdjfla's repo](https://github.com/skdjfla), containing news from TouTiao.
+The dataset comes from [skdjfla's repo](https://github.com/skdjfla/toutiao-text-classfication-dataset), containing news from TouTiao.
 
 ## Result
 
